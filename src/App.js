@@ -1,56 +1,38 @@
+import CategoryList from './components/category-list/category-list.jsx'
+const categories=[
+  { 
+    id: 1,
+    title: 'Caps',
+    imageUrl: "https://i.postimg.cc/59zmBJBm/caps.jpg"
+  },
+  { 
+    id: 2,
+    title: 'Jackets',
+    imageUrl: 'https://i.postimg.cc/PJbZBtKs/jackets.webp'
+  },
+  { 
+    id: 3,
+    title: 'Sneakers',
+    imageUrl: 'https://i.postimg.cc/8zZdpzGT/sneaker.jpg'
+  },
+  { 
+    id: 4,
+    title: 'Women',
+    imageUrl: 'https://i.postimg.cc/DfQXfwQR/dress.avif'
+  },
+  { 
+    id: 5,
+    title: 'Men',
+    imageUrl: 'https://i.postimg.cc/52yYmqcM/men.jpg'
+  }
+]
+
+
 function App() {
+
   return (
-    <div className="categories-container">
-      <div className="category-container">
-        {/* {Image} */}
-        <div className="category_body-container">
-           <h2>Hats</h2>
-           <p>shop</p>
-        </div>
-      </div>
+   <CategoryList categories={categories}/>
+  )
+};
 
-      <div className="category-container">
-        {/* {Image} */}
-        <div className="category_body-container">
-           <h2>Jackets</h2>
-           <p>shop</p>
-        </div>
-      </div>
-
-
-      <div className="category-container">
-        {/* {Image} */}
-        <div className="category_body-container">
-           <h2>Sneakers</h2>
-           <p>shop</p>
-        </div>
-      </div>
- 
-      <div className="category-container">
-        {/* {Image} */}
-        <div className="category_body-container">
-           <h2>Womens</h2>
-           <p>shop</p>
-        </div>
-      </div>
- 
-
-      <div className="category-container">
-        {/* {Image} */}
-        <div className="category_body-container">
-           <h2>Mens</h2>
-           <p>shop</p>
-        </div>
-      </div>
- 
- 
-    </div>
-   
-  );
- }
- 
- export default App;
- 
- 
- 
- 
+export default App;
