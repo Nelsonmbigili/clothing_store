@@ -1,0 +1,49 @@
+import { initializeApp } from "firebase/app";
+import {getAuth,signInWithRedirect,signInWithPopup,GoogleAuthProvider} from 'firebase/auth';
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc,
+} from 'firebase/firestore'
+const firebaseConfig = {
+  apiKey: "AIzaSyA6dytB0Bm02K-3hIKARNroJBQ79AMuBUg",
+  authDomain: "store-98a9d.firebaseapp.com",
+  projectId: "store-98a9d",
+  storageBucket: "store-98a9d.firebasestorage.app",
+  messagingSenderId: "508874291398",
+  appId: "1:508874291398:web:2f906461cae68d4fe83fc7",
+  measurementId: "G-Q6Y72SHYNG"
+};
+
+  const firebaseApp = initializeApp(firebaseConfig);
+
+  const provider = new GoogleAuthProvider();
+
+  provider.setCustomParameters({
+    prompt: 'select_account'
+  });
+  export const auth = getAuth(firebaseApp);
+  export const signInWithGooglePopup=()=> signInWithPopup(auth,provider);
+  export const db = getFirestore();
+  export const createUserDocumentFromAuth = async(userAuth)=>{
+    const userDocRef = doc(db,'users',userAuth.uid);
+    console.log(userDocRef)
+    const userSnapshot = await getDoc(userDocRef);
+    console.log(userSnapshot);
+    console.log(userSnapshot.exists());
+    if(!userSnapshot.exists()){
+      const {displayName, email} = userAuth;
+      const createdAt = new Date();
+
+      try{
+        await setDoc(userDocRef, {
+          displayName,
+          email,
+          createdAt,
+        });
+      }catch(error){
+        console.log(error," Error Signing in With Google")
+      }
+    }
+  }

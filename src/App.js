@@ -1,38 +1,28 @@
-import CategoryList from './components/category-list/category-list.jsx'
-const categories=[
-  { 
-    id: 1,
-    title: 'Caps',
-    imageUrl: "https://i.postimg.cc/59zmBJBm/caps.jpg"
-  },
-  { 
-    id: 2,
-    title: 'Jackets',
-    imageUrl: 'https://i.postimg.cc/PJbZBtKs/jackets.webp'
-  },
-  { 
-    id: 3,
-    title: 'Sneakers',
-    imageUrl: 'https://i.postimg.cc/8zZdpzGT/sneaker.jpg'
-  },
-  { 
-    id: 4,
-    title: 'Women',
-    imageUrl: 'https://i.postimg.cc/DfQXfwQR/dress.avif'
-  },
-  { 
-    id: 5,
-    title: 'Men',
-    imageUrl: 'https://i.postimg.cc/52yYmqcM/men.jpg'
-  }
-]
+import {Routes, Route, Outlet} from 'react-router-dom'
+import Navigation  from './components/navigation/navigation.jsx'
+import Home from './routes/home/home.jsx';
+import SignIn from './routes/sign-in/sign-in.jsx';
 
+const Shop = ()=>{
+  return (
+    <div>
+      <div>
+        <h1>Shoping Page</h1>
+      </div>
+      <Outlet></Outlet>
+    </div>
+  )
+}
 
 function App() {
-
   return (
-   <CategoryList categories={categories}/>
+    <Routes>
+       <Route path="/" element={<Navigation/>}>
+           <Route index element={<Home/>}/>
+           <Route path='/shop' element={<Shop/>}/>
+           <Route path='/sign-in' element={<SignIn/>}/>
+       </Route>
+    </Routes>
   )
 };
-
 export default App;
