@@ -10,10 +10,17 @@ h2{
 
 .buttons-container{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
 }
 
 h1{
     font-size: 0.9em;
     color: rgb(106, 95, 95);
+}
+.none{
+    all: unset;  
+    font-size: 0.9em;
+    font-weight: bold;
+    color: rgb(106, 95, 95);
+    margin: 30px 0;
 }

@@ -3,6 +3,7 @@ import {createAuthUserWithEmailAndPassword, createUserDocumentFromAuth} from '..
 import  FormInput from '../form-input/form-input'
 import Button from '../button/button'
 import './signup.scss'
+// import { UserContext } from '../../context/user';
 
 
 const defaultformFields ={
@@ -15,7 +16,9 @@ const defaultformFields ={
 const SignUpForm = ()=>{
     const [formFields, setFormFields]= useState(defaultformFields);
     const {displayName, email ,password,confirmPassword} = formFields;
-    console.log(formFields);
+
+    // const {setCurrentUser} = useContext(UserContext)
+
 
     const resetFormFields=()=> {
         setFormFields(defaultformFields);
@@ -30,6 +33,7 @@ const SignUpForm = ()=>{
         }
         try{
             const {user} = await createAuthUserWithEmailAndPassword(email,password);
+            // setCurrentUser(user);
             await createUserDocumentFromAuth(user,{displayName});
             console.log("User created successfully, resetting form fields.");
             resetFormFields();

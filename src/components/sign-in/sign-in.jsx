@@ -6,7 +6,7 @@ import {
      signInAuthWithEmailAndPassword,
      signInWithGooglePopup
     } from '../../utils/firebase/firebase'
-
+// import { UserContext } from '../../context/user';
 
 
 const defaultformFields ={
@@ -17,6 +17,7 @@ const defaultformFields ={
 const SignInForm = ()=>{
     const [formFields, setFormFields]= useState(defaultformFields);
     const {email ,password} = formFields;
+    // const {setCurrentUser} = useContext(UserContext);
     console.log(formFields);
 
     const resetFormFields=()=> {
@@ -24,7 +25,8 @@ const SignInForm = ()=>{
     }
 
     const signInWithGoogle= async()=>{
-        const {user} = await signInWithGooglePopup();
+        await signInWithGooglePopup();
+        // setCurrentUser(user)
         }
 
     const handleSubmit = async(event)=> {
@@ -32,8 +34,8 @@ const SignInForm = ()=>{
         console.log("handleSubmit triggered");
     
         try{
-            const respose = await signInAuthWithEmailAndPassword(email,password);
-            console.log(respose);
+            const {user} = await signInAuthWithEmailAndPassword(email,password);
+            // setCurrentUser(user);
             resetFormFields();
         }catch(error)
         {
@@ -41,21 +43,23 @@ const SignInForm = ()=>{
             {
                 console.log(error);
                 alert("Invalid credentials")
+                resetFormFields();
 
             }else if(error.code==='auth/wrong-password'){
                 console.log(error);
                 alert("Incorrect Password for that email")
+                resetFormFields();
             }
             else if(error.code==='auth/user-not-found'){
                 console.log(error);
-                alert("User does not exist!")
+                alert("User does not exist!");
+                resetFormFields();
             }else{
                 console.log(error);
             }
            
         }
     };
-
 
     const handleChange = (event)=>{
         const {name, value} = event.target;
@@ -65,7 +69,7 @@ const SignInForm = ()=>{
     return(
         <div className='sign-up-container'>
           <h2>Already have an account?</h2>
-            <h1>Sign Up With Your Email and Password</h1>
+            <h1>Sign In With Your Email and Password</h1>
             <form onSubmit={handleSubmit}>
                 
                 <FormInput  
@@ -87,7 +91,8 @@ const SignInForm = ()=>{
                 />
                 <div className='buttons-container'>
                     <Button type='submit'> Sign In</Button>
-                    <Button type='button' buttonType='google' onClick={signInWithGoogle}> Google sign in</Button>
+                    <h1 className='none'>Sign In With Your Google Account</h1>
+                    <Button type='button' buttonType='google' onClick={signInWithGoogle}>Google sign in</Button>
                 </div>
                 
             </form>
