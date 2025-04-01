@@ -7,13 +7,14 @@ import { CartContext } from '../../context/cart';
 import { useCallback } from 'react';
 
 const CartDropdown = () => {
-    const {cartItems, isCartOpen, setIsCartOpen} = useContext(CartContext);
-    
-    const toggleIsCartOpen = useCallback(() => {
+   const {cartItems, setIsCartOpen} = useContext(CartContext);
+   const navigate = useNavigate();
+   const toggleIsCartOpen = useCallback(() => {
         setIsCartOpen((prev) => !prev);
     }, [setIsCartOpen]);
 
     const goTOCheckOutHandler = useCallback(() => {
+        
         navigate('/checkout');
     }, [navigate]);
 
