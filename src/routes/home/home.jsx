@@ -1,4 +1,4 @@
-import CategoryList from '../../components/category-list/category-list.jsx'
+import Directory from "../../components/directory/directory";
 
 function home() {
 const categories=[
@@ -29,7 +29,7 @@ const categories=[
     }
     ]
   return (
-   <CategoryList categories={categories}/>
+   <Directory categories={categories}/>
   )
 };
 
