@@ -25,7 +25,6 @@ const Checkout = ()=>{
                     <div className='header-block'>
                         <span>Remove</span>
                     </div>
-                    
                 </div>
               {
                         cartItems.map((cartItem) => {
