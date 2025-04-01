@@ -1,6 +1,5 @@
 import { createContext, useState , useEffect} from "react";
 import {  getCategoriesAndDocuments } from "../utils/firebase/firebase.jsx";
-import SHOP_DATA from '../Mock-DB/shop-data.js';
 
 export const CategoriesContext = createContext({
    categoriesMap: {},
