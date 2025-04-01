@@ -1,4 +1,3 @@
-import Checkout from '../../routes/checkout/checkout';
 import './checkout-item.scss';
 import { CartContext } from '../../context/cart';
 import { useContext } from 'react';
