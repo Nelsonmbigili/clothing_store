@@ -30,7 +30,7 @@ const SignInForm = ()=>{
         console.log("handleSubmit triggered");
     
         try{
-            const {user} = await signInAuthWithEmailAndPassword(email,password);
+            await signInAuthWithEmailAndPassword(email,password);
             resetFormFields();
         }catch(error)
         {
