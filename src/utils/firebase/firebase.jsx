@@ -17,7 +17,7 @@ import {
   collection,
   writeBatch,
   query,
-  getDocs
+  getDocs,
 } from 'firebase/firestore'
 const firebaseConfig = {
   apiKey: "AIzaSyA6dytB0Bm02K-3hIKARNroJBQ79AMuBUg",
@@ -61,14 +61,9 @@ const firebaseConfig = {
     const q = query(collectionRef);
 
     const querySnapshot = await getDocs(q);
-    const categoryMap = querySnapshot.docs.reduce((acc,docSnapshot)=> {
-      const {title, items} = docSnapshot.data();
-      acc[title.toLowerCase()]= items;
-      return acc;
-    },{});
-
-    return categoryMap;
-  }
+    return querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
+    
+  };
 
   export const createUserDocumentFromAuth = async(userAuth, additonalInfomation={})=>{
     if(!userAuth){

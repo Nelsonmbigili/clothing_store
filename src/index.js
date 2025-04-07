@@ -2,28 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
 import App from './App';
-import { UserProvider } from './context/user';
-import {CategoriesProvider} from './context/categories'
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { CartProvider } from './context/cart';
+import { Provider } from 'react-redux';
+import { store } from './store/strore';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter  future={{ 
-  v7_startTransition: true, 
-  v7_relativeSplatPath: true 
-}}>  
-        <UserProvider>
-          <CategoriesProvider>
-            <CartProvider>
-              <App/>
-            </CartProvider>
-          </CategoriesProvider>
-        </UserProvider>
-    </BrowserRouter>
+  <Provider store={store}>
+      <BrowserRouter  future={{ v7_startTransition: true,  v7_relativeSplatPath: true }}>  
+            
+              <CartProvider>
+                <App/>
+              </CartProvider>
+         
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
 

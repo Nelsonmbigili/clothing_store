@@ -13,9 +13,12 @@
     "postcss": "^8.5.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-redux": "^9.2.0",
     "react-router": "^6.30.0",
     "react-router-dom": "^6.30.0",
     "react-scripts": "^5.0.1",
+    "redux": "^5.0.1",
+    "redux-logger": "^3.0.6",
     "sass": "^1.86.0",
     "styled": "^1.0.0",
     "styled-components": "^6.1.16",
@@ -23,10 +26,14 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "preinstall": "npx npm-force-resolutions",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "resolutions": {
+    "postcss": "^8.4.31"
   },
   "eslintConfig": {
     "extends": [
@@ -47,6 +54,7 @@
     ]
   },
   "devDependencies": {
+    "npm-force-resolutions": "^0.0.10",
     "sass-loader": "^16.0.5"
   }
 }
