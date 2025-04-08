@@ -4,7 +4,6 @@ import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import { CartProvider } from './context/cart';
 import { Provider } from 'react-redux';
 import { store } from './store/strore';
 
@@ -13,12 +12,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
   <Provider store={store}>
-      <BrowserRouter  future={{ v7_startTransition: true,  v7_relativeSplatPath: true }}>  
-            
-              <CartProvider>
+      <BrowserRouter  future={{ v7_startTransition: true,  v7_relativeSplatPath: true }}>       
                 <App/>
-              </CartProvider>
-         
       </BrowserRouter>
     </Provider>
   </React.StrictMode>

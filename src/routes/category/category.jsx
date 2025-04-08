@@ -10,7 +10,8 @@ const Category = ()=>{
     const  [products, setProducts]= useState(categoriesMap[category]);
 
     useEffect(()=>{
-        setProducts(categoriesMap[category]);}, [category, categoriesMap])
+        setProducts(categoriesMap[category]);
+    }, [category, categoriesMap])
     
     return (
         <Fragment>
