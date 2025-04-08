@@ -2,7 +2,6 @@ import {CartDropdownContainer,EmptyMessage,CartItemsContainer} from './cart-drop
 import CartItem from '../cart-item/cart-item';
 import { useNavigate } from 'react-router';
 import Button from '../button/button';
-import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { selectCartItems } from '../../store/cart/cart.selector.jsx';
 

@@ -1,4 +1,3 @@
-import { useContext } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCartCount, selectIsCartOpen } from '../../store/cart/cart.selector.jsx';
 import { setIsCartOpen } from '../../store/cart/cart.action.jsx';
