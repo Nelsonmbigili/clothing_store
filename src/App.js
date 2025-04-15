@@ -5,23 +5,16 @@ import Authentication from './routes/authentication/authentication.jsx';
 import Shop from './routes/shop/shop.jsx';
 import Checkout from './routes/checkout/checkout.jsx';
 import { useEffect} from "react";
-import { onAuthStateChangedListener,createUserDocumentFromAuth } from "./utils/firebase/firebase";
-import { setCurrentUser } from './store/user/user.action.jsx';
 import { useDispatch } from 'react-redux';
+import { onCheckUserSession } from './store/user/user.saga.jsx';
+import { checkUserSession } from './store/user/user.action.jsx';
 
 
 function App() {
 
   const dispatch = useDispatch();
    useEffect (()=>{
-     const unsubscribe = onAuthStateChangedListener((user)=>{
-      if(user){
-          createUserDocumentFromAuth(user);
-      }
-     dispatch(setCurrentUser(user));
-     });
-
-     return unsubscribe;
+    dispatch(checkUserSession());
   },[dispatch]);
 
   return (
