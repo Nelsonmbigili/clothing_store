@@ -1,4 +1,4 @@
-import  {StandardButton,InvertedButton,GoogleButton} from './button.style.jsx'
+import  {StandardButton,InvertedButton,GoogleButton, ButtonSpinner} from './button.style.jsx'
 
 
 
@@ -17,10 +17,12 @@ const getButton = (buttonType = Button_TYPE.standard) => (
 )
     
 
-const Button = ({children, buttonType, ...otherProps })=>{
+const Button = ({children, buttonType, isLoading, ...otherProps })=>{
     const UseButton = getButton(buttonType);
     return (
-        <UseButton {...otherProps}>{children}</UseButton>
+        <UseButton disabled={isLoading} {...otherProps}>
+        {isLoading? <ButtonSpinner/> : children}
+        </UseButton>
     )
 }
 export default Button;
