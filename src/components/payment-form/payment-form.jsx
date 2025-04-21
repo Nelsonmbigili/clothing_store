@@ -58,10 +58,15 @@ const PaymentForm = () => {
 
     }
 
+ 
+
     return(
         <PaymentFormContainer onSubmit={paymentHandler}>
         <FormContainer>
         <h2>Credit Card Payment</h2>
+        <label style={{ marginBottom: '20px', display: 'block', fontWeight: 'bold' }}>
+            Card Details
+           </label>
             <CardElement/>
             <PaymentButton  isLoading={isProcessingPayment} type="submit" buttonType={Button_TYPE.inverted}>Pay now</PaymentButton>
         </FormContainer>
