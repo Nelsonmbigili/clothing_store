@@ -6,7 +6,6 @@ import Shop from './routes/shop/shop.jsx';
 import Checkout from './routes/checkout/checkout.jsx';
 import { useEffect} from "react";
 import { useDispatch } from 'react-redux';
-import { onCheckUserSession } from './store/user/user.saga.jsx';
 import { checkUserSession } from './store/user/user.action.jsx';
 
 
